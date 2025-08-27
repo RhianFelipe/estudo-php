@@ -15,9 +15,10 @@ e some 32 ao resultado.
 
 <?php
 $conversaoForFarhenheit = null;
-
+// verifica o metodo post está correto, depois fazemos o isset para evitar enviar a requisição todo carregamento da pagina, verificamos se esta vazio
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['temperatura']) && !empty($_POST['temperatura'])) {
+        //Se não estiver vazio então pegamosa temperatura pelo método post e fazermos o calculo
         $numCelsius = $_POST['temperatura'];
         $conversaoForFarhenheit = $numCelsius * 1.8 + 32;
     } else {
@@ -33,17 +34,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../main.css">
+    <title>Calculadora</title>
 </head>
 
 <body>
 
+ <header>
+<a href="../index.php">Tela Inicial</a>
+
+ </header>
+<!--Forma que enviar um POST para a própria pagina enviando a temperatura digitada pelo atributo name -->
     <form action="" method="POST">
         <label for="nome">Digite sua temperatura em Celsius:</label><br>
         <input type="number" id="temperatura" name="temperatura" required><br><br>
         <input type="submit" value="Enviar">
     </form>
     <?php
+    // se for diferente de nulo, então coloque a temperatura convertida
    if ($conversaoForFarhenheit !== null) {
     echo "A temperatura em Fahrenheit é: {$conversaoForFarhenheit}°";
 }

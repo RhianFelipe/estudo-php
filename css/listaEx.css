@@ -1,0 +1,18 @@
+
+.list-group-item-action {
+    background-color: #f8f9fa; /* Fundo claro para se destacar */
+    border-radius: 5px; /* Bordas arredondadas */
+    border: none;
+    margin-bottom: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.list-group-item-action:hover {
+    background-color: #e9ecef;
+    transform: translateX(5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item-action:active {
+    background-color: #e2e6ea;
+}
